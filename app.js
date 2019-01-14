@@ -9,5 +9,6 @@ app.use(bodyParser.json())
 app.use(cors())
 
 app.get('/', (req, res, next) => query.getAllJobs().then(job => res.json({ job })))
+app.post('/', (req, res, next) => query.createNewJob(req.body).then(job => res.json({ job })))
 
 app.listen(port, () => console.log(`got you on ${port}`))
